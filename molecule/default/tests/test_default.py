@@ -37,14 +37,7 @@ def test_teams_binary_which(host):
     """
     Tests the output to confirm teams's binary location.
     """
-    assert host.check_output('which node') == PACKAGE_BINARY
-
-
-def test_team_binary_which(host):
-    """
-    Tests the output to confirm team's binary location.
-    """
-    assert host.check_output('which team') == '/usr/bin/team'
+    assert host.check_output('which teams') == PACKAGE_BINARY
 
 
 def test_teams_repo_exists(host):
