@@ -1,0 +1,21 @@
+---
+# defaults file for msteams
+
+msteams_app: teams
+msteams_app_desired_state: present
+
+# Debian family based
+msteams_repo_debian_gpg_key: https://packages.microsoft.com/keys/microsoft.asc
+msteams_repo_debian: "deb [arch=amd64] https://packages.microsoft.com/repos/ms-teams stable main"
+msteams_repo_debian_filename: "{{ msteams_app }}"
+msteams_repo_debian_desired_state: present
+
+# EL family based
+msteams_repo_el: "https://packages.microsoft.com/yumrepos/ms-teams"
+msteams_repo_el_name: teams
+msteams_repo_el_description: teams
+msteams_repo_el_gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+msteams_repo_el_gpgcheck: yes
+msteams_repo_el_enabled: yes
+msteams_repo_el_filename: "{{ msteams_app }}"
+msteams_repo_el_desired_state: present
