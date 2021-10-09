@@ -1,0 +1,21 @@
+---
+# tasks file for msteams - Debian/Ubuntu family
+
+- name: Debian/Ubuntu Family | Add gpg signing key for {{ msteams_app }}
+  apt_key:
+    url: "{{ msteams_repo_debian_gpg_key }}"
+    state: present
+
+- name: Debian/Ubuntu Family | Adding repository "{{ msteams_repo_debian }}"
+  apt_repository:
+    repo: "{{ msteams_repo_debian }}"
+    state: "{{ msteams_repo_debian_desired_state }}"
+    filename: "{{ msteams_repo_debian_filename }}"
+    update_cache: yes
+
+- name: Debian/Ubuntu Family | Installing {{ msteams_app }}
+  apt:
+    name: "{{ msteams_app }}"
+    state: "{{ msteams_app_desired_state }}"
+    force_apt_get: yes
+    update_cache: yes
