@@ -1,0 +1,20 @@
+---
+# tasks file for msteams - EL Family
+
+
+- name: EL Family | Adding repository for {{ msteams_repo_el }}
+  yum_repository:
+    name: "{{ msteams_repo_el_name }}"
+    description: "{{ msteams_repo_el_description }}"
+    baseurl: "{{ msteams_repo_el }}"
+    gpgcheck: "{{ msteams_repo_el_gpgcheck }}"
+    gpgkey: "{{ msteams_repo_el_gpgkey }}"
+    file: "{{ msteams_repo_el_filename }}"
+    state: "{{ msteams_repo_el_desired_state }}"
+    enabled: "{{ msteams_repo_el_enabled }}"
+
+- name: EL Family | Installing {{ msteams_app }}
+  yum:
+    name: "{{ msteams_app }}"
+    state: "{{ msteams_app_desired_state }}"
+    update_cache: yes
