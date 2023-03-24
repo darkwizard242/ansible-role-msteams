@@ -3,7 +3,7 @@
 
 
 - name: EL Family | Adding repository for {{ msteams_repo_el }}
-  yum_repository:
+  ansible.builtin.yum_repository:
     name: "{{ msteams_repo_el_name }}"
     description: "{{ msteams_repo_el_description }}"
     baseurl: "{{ msteams_repo_el }}"
@@ -14,7 +14,7 @@
     enabled: "{{ msteams_repo_el_enabled }}"
 
 - name: EL Family | Installing {{ msteams_app }}
-  yum:
+  ansible.builtin.yum:
     name: "{{ msteams_app }}"
     state: "{{ msteams_app_desired_state }}"
     update_cache: yes
